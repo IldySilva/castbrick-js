@@ -9,11 +9,6 @@ export class SmsResource {
     return this.client.post<SendSmsResponse>("/sms/send", request);
   }
 
-  /** Get a single SMS message by ID */
-  get(id: string): Promise<SmsMessage> {
-    return this.client.get<SmsMessage>(`/sms/${id}`);
-  }
-
   /** List SMS messages */
   list(page = 1, pageSize = 20): Promise<PagedResult<SmsMessage>> {
     return this.client.get<PagedResult<SmsMessage>>("/sms", { pageNumber: page, pageSize });

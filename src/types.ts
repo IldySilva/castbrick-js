@@ -41,13 +41,18 @@ export interface SendSmsResponse {
 
 export interface SmsMessage {
   id: string;
-  phoneNumber: string;
+  contactName: string | null;
+  recipientPhone: string;
   message: string;
+  campaignName: string | null;
+  campaignId: string | null;
+  senderId: string | null;
   status: string;
-  tenantId: string;
+  errorMessage: string | null;
+  retryCount: number;
+  scheduledAt: string | null;
   sentAt: string | null;
   deliveredAt: string | null;
-  createdAt: string;
 }
 
 // ─── Contacts ───────────────────────────────────────────────────────────────
