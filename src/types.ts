@@ -3,7 +3,7 @@ export type ApiKeyPermission = "Email" | "Sms" | "Full";
 export interface CastBrickOptions {
   /** Your CastBrick API key */
   apiKey: string;
-  /** Override the API base URL (defaults to https://api.castbrick.com) */
+  /** Override the API base URL (defaults to https://api.castbrick.co) */
   baseUrl?: string;
 }
 

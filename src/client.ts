@@ -6,7 +6,7 @@ export class CastBrickClient {
 
   constructor(options: CastBrickOptions) {
     if (!options.apiKey) throw new Error("CastBrick: apiKey is required");
-    this.baseUrl = (options.baseUrl ?? "https://api.castbrick.com").replace(/\/$/, "");
+    this.baseUrl = (options.baseUrl ?? "https://api.castbrick.co").replace(/\/$/, "");
     this.headers = {
       Authorization: `Bearer ${options.apiKey}`,
       "Content-Type": "application/json",
