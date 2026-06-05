@@ -41,4 +41,15 @@ Default: `https://api.castbrick.co` — **no `/v1`**.
 ## Publishing
 
 Tag `v0.1.x` on the `master` branch triggers GitHub Actions → publishes to npm with provenance.
-Requires `NPM_TOKEN` secret in the repo.
+Publishing uses npm Trusted Publishing through GitHub Actions OIDC. Do not add an `NPM_TOKEN`
+secret for releases.
+
+Configure the package on npmjs.com:
+
+- Package: `castbrick-js`
+- Publisher: GitHub Actions
+- Owner: `IldySilva`
+- Repository: `castbrick-js`
+- Workflow: `.github/workflows/publish.yml`
+
+After that, pushing a `v*` tag triggers the publish workflow.
