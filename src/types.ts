@@ -122,3 +122,40 @@ export interface UpdateBroadcastRequest {
   senderId?: string;
   scheduleAt?: string;
 }
+
+// ─── Push ────────────────────────────────────────────────────────────────────
+
+export interface IssuePushTokenRequest {
+  channels: string[];
+  userId?: string;
+  ttlSeconds?: number;
+}
+
+export interface IssuePushTokenResponse {
+  token: string;
+  expiresAt: string;
+  channels: string[];
+}
+
+export interface PublishEventRequest {
+  channel: string;
+  event: string;
+  data: unknown;
+}
+
+export interface PublishEventResponse {
+  messageId: string;
+  delivered: number;
+  creditsUsed: number;
+}
+
+export interface PushEvent {
+  channel: string;
+  event: string;
+  data: unknown;
+  timestamp: string;
+}
+
+export type PushEventHandler = (event: PushEvent) => void;
+
+export type PushClientStatus = "connecting" | "connected" | "disconnected" | "error";
